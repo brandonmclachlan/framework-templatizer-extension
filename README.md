@@ -32,7 +32,7 @@ Convert specific sales emails and frameworks into reusable templates using the J
 
 See `-tasks/architecture/copywriting/copywriting-system-architecture.md` §1 for the full spec. The six segment types:
 
-- `{variable}` — deterministic substitution from request data (kebab-case names)
+- `{variable}` — deterministic substitution from request data
 - `[{clean-variable}]` — LLM-cleaned variable (e.g., "Chief Executive Officer" → "CEO")
 - `` `FORMULA()` `` — deterministic conditional logic (`IF`, `COALESCE`, `NOTEMPTY`, etc.)
 - `::instruction::` — creative AI fill zone
