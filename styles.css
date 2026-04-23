@@ -1,0 +1,349 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'ss01' on, 'ss03' on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 340px;
+  min-height: 200px;
+  background: #101010;
+}
+
+.view {
+  width: 100%;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background: #1C1C1C;
+  border: 1px solid #323232;
+  box-shadow: inset 0px 3px 3px 1px rgba(255, 255, 255, 0.04),
+              inset 0px -3px 3px 1px rgba(0, 0, 0, 0.33);
+  border-radius: 0px;
+}
+
+.container-auth {
+  width: 340px;
+  min-height: 160px;
+}
+
+.container-templatizer {
+  width: 340px;
+  min-height: 460px;
+}
+
+.container-success {
+  width: 340px;
+  min-height: 240px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  color: #FCFCFC;
+  flex-grow: 1;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 0.7;
+}
+
+/* Form elements */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'ss01' on, 'ss03' on;
+  color: #949494;
+}
+
+.optional {
+  font-size: 12px;
+  color: #666;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 8px;
+  gap: 10px;
+  width: 100%;
+  height: 28px;
+  background: #1C1C1C;
+  border: 1px solid #363636;
+  border-radius: 3px;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'ss01' on, 'ss03' on;
+  color: #FCFCFC;
+  transition: border-color 0.3s;
+}
+
+.input-field::placeholder {
+  color: #949494;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #1F996C;
+}
+
+.textarea-field {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 10px;
+  width: 100%;
+  min-height: 140px;
+  background: #1C1C1C;
+  border: 1px solid #363636;
+  border-radius: 3px;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'ss01' on, 'ss03' on;
+  color: #FCFCFC;
+  resize: vertical;
+}
+
+.textarea-field::placeholder {
+  color: #949494;
+}
+
+.textarea-field:focus {
+  outline: none;
+  border-color: #1F996C;
+}
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #FCFCFC;
+}
+
+.radio-label input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #363636;
+  border-radius: 50%;
+  background: #1C1C1C;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom {
+  border-color: #1F996C;
+  background: #1F996C;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: #FCFCFC;
+  border-radius: 50%;
+}
+
+.radio-text {
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 6px;
+  width: 100%;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'ss01' on, 'ss03' on;
+  color: #FCFCFC;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #1F996C;
+  box-shadow: inset 0px -1px 1px 0.5px rgba(0, 0, 0, 0.25), 
+              inset 0px 1px 1px 0.5px rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary {
+  background: #363636;
+  box-shadow: inset 0px -1px 1px 0.5px rgba(0, 0, 0, 0.25), 
+              inset 0px 1px 1px 0.5px rgba(255, 255, 255, 0.1);
+}
+
+/* Status message */
+.status-message {
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  min-height: 16px;
+  text-align: center;
+  color: #949494;
+}
+
+.status-error {
+  color: #9C3138;
+}
+
+.status-loading {
+  color: #3B82F6;
+}
+
+.status-success {
+  color: #1F996C;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #3B82F6;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success view */
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 0;
+}
+
+.success-icon {
+  width: 48px;
+  height: 48px;
+  background: #1F996C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #FCFCFC;
+}
+
+.success-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #FCFCFC;
+  text-align: center;
+}
+
+.success-step {
+  font-size: 12px;
+  color: #949494;
+  padding: 2px 8px;
+  background: #2D4370;
+  border-radius: 4px;
+}

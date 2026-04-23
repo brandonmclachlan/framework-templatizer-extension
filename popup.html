@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framework Templatizer</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+  <!-- Auth View -->
+  <div id="auth-view" class="view">
+    <div class="container container-auth">
+      <div class="header">
+        <h1>Sign In</h1>
+      </div>
+      <div class="form-group">
+        <label for="auth-user-id">User ID</label>
+        <input type="text" id="auth-user-id" class="input-field" placeholder="Paste your Notion User ID..." />
+      </div>
+      <button id="auth-submit" class="btn btn-primary" disabled>Verify</button>
+      <div id="auth-error" class="status-message"></div>
+    </div>
+  </div>
+
+  <div id="main-view" class="view" style="display: none;">
+    <div class="container container-templatizer">
+      <div class="header">
+        <h1>Framework Templatizer</h1>
+        <button id="close-btn" class="close-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12M4 4L12 12" stroke="#949494" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="form-group">
+        <label for="title-input">Title <span class="optional">(optional - AI will generate)</span></label>
+        <input 
+          type="text" 
+          id="title-input" 
+          class="input-field" 
+          placeholder="e.g., Pain Point + Social Proof Follow-up"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="message-input">Message</label>
+        <textarea 
+          id="message-input" 
+          class="textarea-field" 
+          placeholder="Paste the framework, email template, or specific email you want to templatize..."
+          rows="8"
+        ></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Step Type</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="step" value="First-touch" checked />
+            <span class="radio-custom"></span>
+            <span class="radio-text">First-touch</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="step" value="Follow-up" />
+            <span class="radio-custom"></span>
+            <span class="radio-text">Follow-up</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Channel <span class="optional">(optional)</span></label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="channel" value="" checked />
+            <span class="radio-custom"></span>
+            <span class="radio-text">Unspecified</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="channel" value="Email" />
+            <span class="radio-custom"></span>
+            <span class="radio-text">Email</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="channel" value="LinkedIn" />
+            <span class="radio-custom"></span>
+            <span class="radio-text">LinkedIn</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject-input">Subject Line Framework <span class="optional">(optional — auto-generated for first-touch)</span></label>
+        <input
+          type="text"
+          id="subject-input"
+          class="input-field"
+          placeholder='e.g. `IF(NOTEMPTY({trigger}), ::hook::, ::generic angle::)`'
+        />
+      </div>
+
+      <button id="submit-btn" class="btn btn-primary" disabled>Templatize</button>
+      
+      <div id="status-message" class="status-message"></div>
+    </div>
+  </div>
+
+  <!-- Success View -->
+  <div id="success-view" class="view" style="display: none;">
+    <div class="container container-success">
+      <div class="header">
+        <h1>Framework Created!</h1>
+        <button id="close-btn-success" class="close-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12M4 4L12 12" stroke="#949494" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="success-content">
+        <div class="success-icon">✓</div>
+        <div class="success-title" id="created-title">Framework Title</div>
+        <div class="success-step" id="created-step">First-touch</div>
+      </div>
+      
+      <a id="notion-link" class="btn btn-primary" href="#" target="_blank">Open in Notion</a>
+      <button id="new-btn" class="btn btn-secondary">Create Another</button>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
